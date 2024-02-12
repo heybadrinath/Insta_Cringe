@@ -1,3 +1,3 @@
-Insta Cringe
+# Insta Cringe
 
-Find yourself submerged in the sea of cringe with the most cringeworthy Instagram bios
+## Find yourself submerged in the sea of cringe with the most cringeworthy Instagram bios
