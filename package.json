@@ -10,8 +10,10 @@
   "author": "Badri",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.18.2",
     "mongodb": "^6.3.0",
+    "mongoose": "^8.1.3",
     "node": "^21.6.1",
     "nodemon": "^3.0.3",
     "react": "^18.2.0"
