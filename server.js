@@ -1,17 +1,21 @@
 const express = require("express");
 const app = express();
 const port = "3000";
+const {startDB,dbStatus} = require("./database")
 
-if (require.main === module) {
-  app.listen(port, () => {
-    console.log(`🚀 server running on PORT: ${port}`);
-  });
-}
 app.get("/", (req, res) => {
-  res.send("home");
+  res.json({status: dbStatus ? "connected" : "disconnected"});
+
 });
 app.get("/ping", (req, res) => {
   res.send("pong");
 });
+
+if (require.main === module) {
+  app.listen(port,async () => {
+    await startDB()
+    console.log(`🚀 server running on PORT: ${port}`);
+  });
+}
 
 module.exports = app;
