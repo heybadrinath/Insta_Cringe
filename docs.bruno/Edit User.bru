@@ -1,0 +1,18 @@
+meta {
+  name: Edit User
+  type: http
+  seq: 4
+}
+
+patch {
+  url: http://localhost:3000/putBio/70
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "UserName": "heybadrinath",
+    "Bio": "Hello World"
+  }
+}
