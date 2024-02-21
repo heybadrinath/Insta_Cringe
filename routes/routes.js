@@ -14,8 +14,19 @@ router.get("/getBio", async (req, res) => {
 
 router.post("/postBio", async (req, res) => {
   try {
-    console.log(req.body);
     const { UserName, Bio, userId } = req.body;
+    console.log(req.body);
+    if (!UserName || !Bio || !userId) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+    if (
+      typeof UserName !== "string" ||
+      typeof Bio !== "string" ||
+      typeof userId !== "number"
+    ) {
+      return res.status(400).json({ message: "Invalid data types for fields" });
+    }
+
     const profile = new Profile({ UserName, Bio, userId });
     await profile.save();
     res.status(201).json({ message: "Profile added successfully", profile });
