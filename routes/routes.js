@@ -10,7 +10,7 @@ router.get("/getBio", async (req, res) => {
     console.log(error.message);
     res.status(500).send("Internal Server Error");
   }
-}); 
+});
 
 router.post("/postBio", async (req, res) => {
   try {
