@@ -1,0 +1,11 @@
+.home{
+    width: 60%;
+    margin: auto;
+    text-align: center;
+}
+
+.home p{
+    font-family: monospace;
+    line-height: 20px;
+    word-spacing: 5px;
+}
