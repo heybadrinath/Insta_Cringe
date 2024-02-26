@@ -1,6 +1,5 @@
-import { useState } from "react";
 import "./App.css";
-
+import FirstEntity from "./components/firstEntity";
 function App() {
   return (
     <div className="home">
@@ -13,6 +12,7 @@ function App() {
         in celebrating the quirks and eccentricities of Instagram bios on
         InstaCringeBio!
       </p>
+      <FirstEntity />
     </div>
   );
 }

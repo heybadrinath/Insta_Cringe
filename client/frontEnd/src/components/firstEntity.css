@@ -1,0 +1,18 @@
+.dummy{
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.dummy h1{
+    color: purple;
+    width: min-content;   
+}
+
+.dummy p{
+    width: 600px;
+    text-align: justify;
+}
