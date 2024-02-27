@@ -1,11 +1,11 @@
-const express = require("express");
+    const express = require("express");
 const app = express();
 const port = "3000";
 const { startDB, dbStatus } = require("./database");
 const routes = require("./routes/routes");
-
+const cors = require("cors")
 app.use(express.json());
-
+app.use(cors())
 app.use("/", routes);
 
 app.get("/", (req, res) => {
