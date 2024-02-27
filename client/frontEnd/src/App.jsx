@@ -9,8 +9,7 @@ function App() {
     fetchData();
   }, []);
   const fetchData = async () => {
-    // const apiLink = "https://badri-squad51-insta-cringe.onrender.com/getBio";
-    const apiLink = "http://localhost:3000/getBio";
+    const apiLink = "https://badri-squad51-insta-cringe.onrender.com/getBio";
     try {
       const response = await fetch(apiLink);
       const responseData = await response.json();
