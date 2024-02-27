@@ -1,11 +1,21 @@
-.home{
-    width: 60%;
-    margin: auto;
-    text-align: center;
+.home {
+  width: 100%;
+  /* margin: auto; */
+  text-align: center;
 }
 
-.home p{
-    font-family: monospace;
-    line-height: 20px;
-    word-spacing: 5px;
+.home p {
+  font-family: monospace;
+  line-height: 20px;
+  word-spacing: 5px;
+}
+
+.itemBox {
+  border: 1px solid black;
+
+}
+
+.profiles{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
