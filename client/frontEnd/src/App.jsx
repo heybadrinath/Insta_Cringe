@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import FirstEntity from "./components/firstEntity";
-
+import InputForm from "./components/InputForm";
 function App() {
   let [data, setData] = useState(null);
+  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/getBio";
 
   useEffect(() => {
     fetchData();
   }, []);
   const fetchData = async () => {
-    const apiLink = "https://badri-squad51-insta-cringe.onrender.com/getBio";
     try {
       const response = await fetch(apiLink);
       const responseData = await response.json();
@@ -31,7 +31,7 @@ function App() {
         in celebrating the quirks and eccentricities of Instagram bios on
         InstaCringeBio!
       </p>
-      <div className="profiles">
+      {/* <div className="profiles">
         {data &&
           data.map((item, index) => (
             <div key={index} className="itemBox">
@@ -39,7 +39,8 @@ function App() {
               <p>{item.Bio}</p>
             </div>
           ))}
-      </div>
+      </div> */}
+      <InputForm apiLink = {apiLink}/>
     </div>
   );
 }
