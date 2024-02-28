@@ -8,7 +8,7 @@ function InputForm() {
   const [userId, setUserId] = useState(0);
   const [apiRes, setApiRes] = useState("");
   const [error, setError] = useState("");
-
+  const [apiData, setApiData] = useState({});
   const postRequest = (e) => {
     e.preventDefault();
     axios
@@ -20,6 +20,7 @@ function InputForm() {
       .then((res) => {
         console.log(res.data);
         setApiRes("Data added successfully");
+        setApiData(res.data)
         setUserName("");
         setUserBio("");
         setUserId("");
@@ -66,6 +67,10 @@ function InputForm() {
         <button>Add to DataBase</button>
         {error && <p style={{ color: "red" }}>{error}</p>}
         {apiRes && <p style={{ color: "green" }}>{apiRes}</p>}
+        {apiData && <p>User-Id: {apiData.profile.userId}</p>}
+        {apiData && <p>User Name: {apiData.profile.UserName}</p>}
+        {apiData && <p>Bio: {apiData.profile.Bio}</p>}
+
       </form>
     </div>
   );
