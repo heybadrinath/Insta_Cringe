@@ -45,7 +45,7 @@ function InputForm() {
         />
         <p>User Id:</p>
         <input
-          type="number"
+          type="text"
           value={userId}
           onChange={(e) => {
             setUserId(e.target.value);

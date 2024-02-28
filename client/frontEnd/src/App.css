@@ -27,3 +27,34 @@
     gap: 30px;
     margin: 30px;
 }
+
+
+.formDiv{
+  width: 20%;
+  margin: 5% auto;
+  background-color: bisque;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.formDiv input, .formDiv textarea{
+  border: 0px;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+}
+
+.formDiv textarea{
+  padding-top: 20px;
+}
+
+.formDiv button {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+  background-color:chartreuse;
+  font-size: large;
+}
