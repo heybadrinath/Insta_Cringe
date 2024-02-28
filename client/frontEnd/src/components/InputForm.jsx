@@ -5,7 +5,7 @@ function InputForm() {
   const apiLink = "https://badri-squad51-insta-cringe.onrender.com/postBio";
   const [userName, setUserName] = useState("");
   const [userBio, setUserBio] = useState("");
-  const [userId, setUserId] = useState(0);
+  const [userId, setUserId] = useState("");
   const [apiRes, setApiRes] = useState("");
   const [error, setError] = useState("");
   const [apiData, setApiData] = useState({});
@@ -20,14 +20,24 @@ function InputForm() {
       .then((res) => {
         console.log(res.data);
         setApiRes("Data added successfully");
-        setApiData(res.data)
+        setApiData(res.data);
         setUserName("");
         setUserBio("");
         setUserId("");
       })
       .catch((err) => {
-        console.log(err);
-        setError("Error adding data. Please try again.");
+        if (err.response) {
+          console.log(err.response.data);
+          console.log(err.response.status);
+          console.log(err.response.headers);
+          setError("Error: " + err.response.data);
+        } else if (err.request) {
+          console.log(err.request);
+          setError("Error: No response received from the server.");
+        } else {
+          console.log("Error", err.message);
+          setError("Error: " + err.message);
+        }
       });
   };
 
@@ -67,10 +77,13 @@ function InputForm() {
         <button>Add to DataBase</button>
         {error && <p style={{ color: "red" }}>{error}</p>}
         {apiRes && <p style={{ color: "green" }}>{apiRes}</p>}
-        {apiData && <p>User-Id: {apiData.profile.userId}</p>}
-        {apiData && <p>User Name: {apiData.profile.UserName}</p>}
-        {apiData && <p>Bio: {apiData.profile.Bio}</p>}
-
+        {apiData.profile && (
+          <div>
+            <p>User-Id: {apiData.profile.userId}</p>
+            <p>User Name: {apiData.profile.UserName}</p>
+            <p>Bio: {apiData.profile.Bio}</p>
+          </div>
+        )}
       </form>
     </div>
   );
