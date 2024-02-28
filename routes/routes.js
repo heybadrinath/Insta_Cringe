@@ -22,7 +22,7 @@ router.post("/postBio", async (req, res) => {
     if (
       typeof UserName !== "string" ||
       typeof Bio !== "string" ||
-      typeof userId !== "number"
+      typeof userId !== "string"
     ) {
       return res.status(400).json({ message: "Invalid data types for fields" });
     }
