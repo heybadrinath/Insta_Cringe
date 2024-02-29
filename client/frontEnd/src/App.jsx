@@ -1,27 +1,9 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import FirstEntity from "./components/firstEntity";
-import InputForm from "./components/InputForm";
 import AllRoutes from "./AlllRoutes";
 import { BrowserRouter } from "react-router-dom";
 
 function App() {
-  let [data, setData] = useState(null);
-  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/getBio";
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-  const fetchData = async () => {
-    try {
-      const response = await fetch(apiLink);
-      const responseData = await response.json();
-      setData(responseData);
-      console.log(responseData);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <>
@@ -36,15 +18,6 @@ function App() {
             bio. Join us in celebrating the quirks and eccentricities of
             Instagram bios on InstaCringeBio!
           </p>
-          {/* <div className="profiles">
-        {data &&
-          data.map((item, index) => (
-            <div key={index} className="itemBox">
-              <h1>{item.UserName}</h1>
-              <p>{item.Bio}</p>
-            </div>
-          ))}
-      </div> */}
         </div>
         <AllRoutes />
 

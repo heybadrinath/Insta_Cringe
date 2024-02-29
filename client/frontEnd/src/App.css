@@ -58,3 +58,35 @@
   background-color:chartreuse;
   font-size: large;
 }
+
+
+.edit{
+  margin: auto;
+  width: 40%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit input, .edit textarea{
+  border: 0px;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+}
+
+.edit textarea{
+  padding-top: 20px;
+}
+
+.edit button {
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin:  10px 50px;
+  background-color:chartreuse;
+  font-size: large;
+}
