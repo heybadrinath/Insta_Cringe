@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import FirstEntity from "./components/firstEntity";
 import InputForm from "./components/InputForm";
+import AllRoutes from "./AlllRoutes";
+import { BrowserRouter } from "react-router-dom";
+
 function App() {
   let [data, setData] = useState(null);
   const apiLink = "https://badri-squad51-insta-cringe.onrender.com/getBio";
@@ -21,17 +24,19 @@ function App() {
   };
 
   return (
-    <div className="home">
-      <h1>Welcome To Insta Cringe</h1>
-      <p>
-        Discover the ultimate collection of cringe-worthy Instagram bios all in
-        one place. From the hilariously awkward to the downright bizarre, we've
-        got it covered. Scroll through our curated list and prepare to laugh,
-        cringe, and maybe even find some inspiration for your own bio. Join us
-        in celebrating the quirks and eccentricities of Instagram bios on
-        InstaCringeBio!
-      </p>
-      {/* <div className="profiles">
+    <>
+      <BrowserRouter>
+        <div className="home">
+          <h1>Welcome To Insta Cringe</h1>
+          <p>
+            Discover the ultimate collection of cringe-worthy Instagram bios all
+            in one place. From the hilariously awkward to the downright bizarre,
+            we've got it covered. Scroll through our curated list and prepare to
+            laugh, cringe, and maybe even find some inspiration for your own
+            bio. Join us in celebrating the quirks and eccentricities of
+            Instagram bios on InstaCringeBio!
+          </p>
+          {/* <div className="profiles">
         {data &&
           data.map((item, index) => (
             <div key={index} className="itemBox">
@@ -40,8 +45,11 @@ function App() {
             </div>
           ))}
       </div> */}
-      <InputForm apiLink = {apiLink}/>
-    </div>
+        </div>
+        <AllRoutes />
+
+      </BrowserRouter>
+    </>
   );
 }
 
