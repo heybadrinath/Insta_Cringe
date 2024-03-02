@@ -12,20 +12,32 @@ function EditEntity() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setApiRes(null); // Reset apiRes state
-    setErr(""); // Reset err state
+    setApiRes(null); 
+    setErr(""); 
     try {
-      const response = await axios.patch(`${apiLink}/${userId}`, {
-        UserName: userName,
-        Bio: userBio,
-      });
+      let requestData = {};
+      
+      if (userName.trim() !== "") {
+        requestData.UserName = userName;
+      }
+     
+      if (userBio.trim() !== "") {
+        requestData.Bio = userBio;
+      }
+   
+      if (Object.keys(requestData).length === 0) {
+        throw new Error("No fields to update.");
+      }
+  
+      const response = await axios.patch(`${apiLink}/${userId}`, requestData);
       console.log(response.data);
       setApiRes(response.data);
     } catch (error) {
-      console.log("Error updating user:", error.response.data.message);
-      setErr(error.response.data.message);
+      console.log("Error updating user:", error.response ? error.response.data.message : error.message);
+      setErr(error.response ? error.response.data.message : error.message);
     }
   };
+  
 
   return (
     <div className="edit">
