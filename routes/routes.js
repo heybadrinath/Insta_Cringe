@@ -19,7 +19,7 @@ router.get("/getBio", async (req, res) => {
     res.status(200).json(profile);
   } catch (error) {
     console.log(error.message);
-    res.status(500).send("Internal Server Error");
+    res.status(400).send("Internal Server Error");
   }
 });
 
@@ -31,7 +31,7 @@ router.post("/postBio", async (req, res) => {
     const { error, value } = postValidate.validate({ UserName, Bio, userId });
 
     if (error) {
-      res.status(501).json(error);
+      res.status(400).json(error);
     } else {
       const profile = new Profile({ UserName, Bio, userId });
       await profile.save();
