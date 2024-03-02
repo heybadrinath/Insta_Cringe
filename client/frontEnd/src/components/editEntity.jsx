@@ -2,14 +2,18 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 function EditEntity() {
-  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/putBio";
+  const apiLink = "http://localhost:3000/putBio";
   const [userName, setUserName] = useState("");
   const [userBio, setUserBio] = useState("");
   const [userId, setUserId] = useState("");
   const [apiRes, setApiRes] = useState(null);
   const [err, setErr] = useState("");
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setApiRes(null); // Reset apiRes state
+    setErr(""); // Reset err state
     try {
       const response = await axios.patch(`${apiLink}/${userId}`, {
         UserName: userName,
@@ -18,10 +22,11 @@ function EditEntity() {
       console.log(response.data);
       setApiRes(response.data);
     } catch (error) {
-      console.log("Error updating user:", error);
+      console.log("Error updating user:", error.response.data.message);
       setErr(error.response.data.message);
     }
   };
+
   return (
     <div className="edit">
       <form onSubmit={handleSubmit}>
