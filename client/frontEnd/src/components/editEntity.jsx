@@ -9,35 +9,36 @@ function EditEntity() {
   const [apiRes, setApiRes] = useState(null);
   const [err, setErr] = useState("");
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setApiRes(null); 
-    setErr(""); 
+    setApiRes(null);
+    setErr("");
     try {
       let requestData = {};
-      
+
       if (userName.trim() !== "") {
         requestData.UserName = userName;
       }
-     
+
       if (userBio.trim() !== "") {
         requestData.Bio = userBio;
       }
-   
+
       if (Object.keys(requestData).length === 0) {
         throw new Error("No fields to update.");
       }
-  
+
       const response = await axios.patch(`${apiLink}/${userId}`, requestData);
       console.log(response.data);
       setApiRes(response.data);
     } catch (error) {
-      console.log("Error updating user:", error.response ? error.response.data.message : error.message);
+      console.log(
+        "Error updating user:",
+        error.response ? error.response.data.message : error.message
+      );
       setErr(error.response ? error.response.data.message : error.message);
     }
   };
-  
 
   return (
     <div className="edit">
@@ -78,8 +79,8 @@ function EditEntity() {
       {err && <p style={{ color: "red" }}>{err}</p>}
       {apiRes && (
         <div>
-          {apiRes && <p>User Name: {apiRes.profile.UserName}</p>}
-          {apiRes && <p>User Bio: {apiRes.profile.Bio}</p>}
+          <p>User Name: {apiRes.UserName}</p>
+          <p>User Bio: {apiRes.Bio}</p>
         </div>
       )}
     </div>
