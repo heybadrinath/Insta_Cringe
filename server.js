@@ -5,6 +5,8 @@ const { startDB, dbStatus } = require("./database");
 const routes = require("./routes/routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+const jwt = require("jsonwebtoken");
+require("dotenv").config()
 
 app.use(express.json());
 app.use(cors());
@@ -25,7 +27,11 @@ app.post("/login", (req, res) => {
     if (!userName) {
       throw new Error("Username is required");
     }
-    res.cookie("userName", userName);
+    const secret = process.env.SECRET_MESSAGE
+    const token = jwt.sign({ userName: userName }, secret, {
+      expiresIn: "24h",
+    });
+    res.cookie("userToken", token);
     res.send("Login successful");
   } catch (err) {
     res.status(400).send(err.message);
