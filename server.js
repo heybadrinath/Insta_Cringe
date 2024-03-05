@@ -1,13 +1,13 @@
-    const express = require("express");
+const express = require("express");
 const app = express();
 const port = "3000";
 const { startDB, dbStatus } = require("./database");
 const routes = require("./routes/routes");
-const cors = require("cors")
-const cookieParser = require('cookie-parser');
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 app.use("/", routes);
 
 app.get("/", (req, res) => {
@@ -18,19 +18,28 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-
 app.use(cookieParser());
-app.post('/login', (req, res) => {
+app.post("/login", (req, res) => {
+  try {
     const { userName } = req.body;
-    res.cookie('userName', userName);
-    res.send('Login successful');
+    if (!userName) {
+      throw new Error("Username is required");
+    }
+    res.cookie("userName", userName);
+    res.send("Login successful");
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
 });
 
-app.get('/logout', (req, res) => {
-    res.clearCookie('userName');
-    res.send('Logout successful');
+app.get("/logout", (req, res) => {
+  try {
+    res.clearCookie("userName");
+    res.send("Logout successful");
+  } catch (err) {
+    res.status(500).send("Internal Server Error");
+  }
 });
-
 
 if (require.main === module) {
   app.listen(port, async () => {
