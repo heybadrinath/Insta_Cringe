@@ -60,13 +60,11 @@ router.patch("/putBio/:UserId", async (req, res) => {
     if (error) {
       return res.status(400).json({ error: error.details[0].message });
     }
-    console.log(typeof UserId);
     const profile = await Profile.findOneAndUpdate(
       { UserId: UserId },
       updates,
       { new: true }
     );
-    console.log(profile);
 
     if (!profile) {
       return res.status(404).json({ message: "Profile not found" });
@@ -97,7 +95,6 @@ router.delete("/delete/:UserId", async (req, res) => {
 router.get("/getUsers", async (req, res) => {
   try {
     const data = await users.find();
-    console.log(data);
     res.json(data);
   } catch (error) {
     console.log(error.message);
