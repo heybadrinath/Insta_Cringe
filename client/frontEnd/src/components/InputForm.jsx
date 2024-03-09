@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function InputForm() {
   const apiLink = "http://localhost:3000/postBio";
@@ -80,12 +81,14 @@ function InputForm() {
         {apiRes && <p style={{ color: "green" }}>{apiRes}</p>}
       </form>
 
-
       {apiData.userId && (
         <div>
           <p>User-Id: {apiData.userId}</p>
           <p>User Name: {apiData.UserName}</p>
           <p>Bio: {apiData.Bio}</p>
+          <Link to="/get">
+            <button>Back To Get</button>
+          </Link>
         </div>
       )}
     </div>

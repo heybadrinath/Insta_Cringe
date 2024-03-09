@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 function DeleteEntity() {
-  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/delete";
+  const apiLink = "http://localhost:3000/delete";
   const [userId, setUserId] = useState("");
   const [res, setRes] = useState(null);
   const [err, setErr] = useState(null);
