@@ -4,9 +4,7 @@ const port = "3000";
 const { startDB, dbStatus } = require("./database");
 const routes = require("./routes/routes");
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const jwt = require("jsonwebtoken");
-require("dotenv").config()
+
 
 app.use(express.json());
 app.use(cors());
@@ -20,32 +18,7 @@ app.get("/ping", (req, res) => {
   res.send("pong");
 });
 
-app.use(cookieParser());
-app.post("/login", (req, res) => {
-  try {
-    const { userName } = req.body;
-    if (!userName) {
-      throw new Error("Username is required");
-    }
-    const secret = process.env.SECRET_MESSAGE
-    const token = jwt.sign({ userName: userName }, secret, {
-      expiresIn: "24h",
-    });
-    res.cookie("userToken", token);
-    res.send("Login successful");
-  } catch (err) {
-    res.status(400).send(err.message);
-  }
-});
 
-app.get("/logout", (req, res) => {
-  try {
-    res.clearCookie("userName");
-    res.send("Logout successful");
-  } catch (err) {
-    res.status(500).send("Internal Server Error");
-  }
-});
 
 if (require.main === module) {
   app.listen(port, async () => {
