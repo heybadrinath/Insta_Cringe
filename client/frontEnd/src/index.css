@@ -3,5 +3,26 @@ body {
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-  background-color: aquamarine;
+  background-image: linear-gradient(
+    to top,
+    #52d3d8,
+    #3dc5d7,
+    #2cb8d4,
+    #24a9d0,
+    #299bca,
+    #218fc5,
+    #2183c0,
+    #2877b9,
+    #236ab4,
+    #265dae,
+    #2e50a6,
+    #38419d
+  );
+}
+
+
+.index{
+  color: white;
+  margin: 1% 20%;
+  text-align: center;
 }

@@ -59,7 +59,7 @@ function App() {
           )}
         </div>
       </div>
-      <p>
+      <p className="index">
         Discover the ultimate collection of cringe-worthy Instagram bios all in
         one place. From the hilariously awkward to the downright bizarre, we've
         got it covered. Scroll through our curated list and prepare to laugh,

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 import Cookies from "js-cookie";
 
 function UserLogin({ login }) {
-  const apiLink = "http://localhost:3000/login";
+  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/login";
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [responseMessage, setResponseMessage] = useState("");

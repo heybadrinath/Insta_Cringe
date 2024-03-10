@@ -7,7 +7,7 @@ function EditEntity() {
   const { id } = useParams();
   const [userName, setUserName] = useState("");
   const [userBio, setUserBio] = useState("");
-  const [userId, setUserId] = useState(id);
+  const [UserId, setUserId] = useState(id);
   const [apiRes, setApiRes] = useState(null);
   const [err, setErr] = useState("");
 
@@ -33,7 +33,7 @@ function EditEntity() {
         throw new Error("No fields to update.");
       }
       console.log(requestData);
-      const response = await axios.patch(`${apiLink}/${userId}`, requestData);
+      const response = await axios.patch(`${apiLink}/${UserId}`, requestData);
       console.log(response.data);
       setApiRes(response.data);
     } catch (error) {
@@ -62,7 +62,7 @@ function EditEntity() {
         <p>User Id:</p>
         <input
           type="text"
-          value={userId}
+          value={UserId}
           onChange={(e) => {
             setUserId(e.target.value);
           }}

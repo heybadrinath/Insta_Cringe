@@ -6,11 +6,15 @@ function InputForm() {
   const apiLink = "http://localhost:3000/postBio";
   const [userName, setUserName] = useState("");
   const [userBio, setUserBio] = useState("");
-  const [userId, setUserId] = useState("");
+  const [UserId, setUserId] = useState("");
+  const [createdBy, setCreatedBy] = useState("");
   const [apiRes, setApiRes] = useState("");
   const [error, setError] = useState("");
   const [apiData, setApiData] = useState({});
 
+  const handleSelectChange = (e) => {
+    setCreatedBy(e.target.value);
+  };
   const postRequest = (e) => {
     e.preventDefault();
     setError("");
@@ -19,7 +23,8 @@ function InputForm() {
       .post(apiLink, {
         UserName: userName,
         Bio: userBio,
-        userId: userId,
+        UserId: UserId,
+        createdBy: createdBy,
       })
       .then((res) => {
         console.log(res);
@@ -28,6 +33,7 @@ function InputForm() {
         setUserName("");
         setUserBio("");
         setUserId("");
+        setCreatedBy("");
       })
       .catch((err) => {
         if (err.response) {
@@ -59,11 +65,20 @@ function InputForm() {
         <p>User Id:</p>
         <input
           type="text"
-          value={userId}
+          value={UserId}
           onChange={(e) => {
             setUserId(e.target.value);
           }}
         />
+        <div className="select">
+          <select onChange={handleSelectChange}>
+            <option value="">Select Creator</option>
+            <option value="badri">Badri</option>
+            <option value="monesh">Monesh</option>
+            <option value="shashwath">Shashwath</option>
+            <option value="kishore">Kishore</option>
+          </select>
+        </div>
         <p>Bio:</p>
         <textarea
           name="bio"
@@ -81,11 +96,12 @@ function InputForm() {
         {apiRes && <p style={{ color: "green" }}>{apiRes}</p>}
       </form>
 
-      {apiData.userId && (
-        <div>
-          <p>User-Id: {apiData.userId}</p>
+      {apiData.UserId && (
+        <div className="result">
+          <p>User-Id: {apiData.UserId}</p>
           <p>User Name: {apiData.UserName}</p>
           <p>Bio: {apiData.Bio}</p>
+          <p>Creator: {apiData.createdBy}</p>
           <Link to="/get">
             <button>Back To Get</button>
           </Link>

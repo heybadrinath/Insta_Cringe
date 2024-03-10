@@ -4,32 +4,35 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  background-color: aqua;
+  background-color: #ffd1e3;
 }
 
-.home button{
+.home button {
   background-color: #111827;
   border: 1px solid transparent;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   flex: 0 0 auto;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.5rem;
-  padding: .75rem 1.2rem;
+  padding: 0.75rem 1.2rem;
   text-align: center;
-  text-decoration: none #6B7280 solid;
+  text-decoration: none #6b7280 solid;
   text-decoration-thickness: auto;
-  transition-duration: .2s;
-  transition-property: background-color,border-color,color,fill,stroke;
-  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   width: auto;
+  margin: 10px;
 }
 
 .button-40:hover {
@@ -42,11 +45,6 @@
   outline-offset: 2px;
 }
 
-@media (min-width: 768px) {
-  .button-40 {
-    padding: .75rem 1.5rem;
-  }
-}
 p {
   font-family: monospace;
   line-height: 20px;
@@ -56,40 +54,95 @@ p {
 .itemBox {
   border: 1px solid black;
   border-radius: 10px;
-  background-color: #ADBC9F;
-
+  color: white;
+  padding: 5px 20px;
+  background-color: #5b9a8b;
+  transition: 0.5s ease;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.itemBox p{
-    width: 60%;
-    margin: 5% 20%;
+.itemBox:hover {
+  scale: 1.06;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
+    rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
+    rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+.itemBox h1 {
+  font-family: monospace;
 }
 
-.profiles{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
-    margin: 30px;
+.itemBox p {
+  width: 60%;
+  text-align: justify;
 }
 
+.button-55 {
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  margin: 0px 5px;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
 
-.formDiv{
+.button-55:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+}
+
+.button-55:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+.profiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px;
+}
+
+.formDiv {
   width: 20%;
   margin: 5% auto;
   background-color: bisque;
   border-radius: 20px;
-  padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.formDiv input, .formDiv textarea{
+.formDiv input,
+.formDiv textarea {
   border: 0px;
   border-radius: 10px;
   height: 40px;
   text-align: center;
+  /* margin: 0px 5%; */
 }
 
-.formDiv textarea{
+.formDiv textarea {
   padding-top: 20px;
 }
 
@@ -98,30 +151,48 @@ p {
   border: none;
   border-radius: 10px;
   padding: 10px;
-  margin: 20px;
-  background-color:chartreuse;
+  margin: 10px;
+  background-color: chartreuse;
   font-size: large;
 }
 
+.select select {
+  background-color: rgb(218, 218, 218);
+  height: 30px;
+  width: 90%;
+  margin: 10% 5%;
+  border-radius: 10px;
+}
 
-.edit{
+.result {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit {
   margin: auto;
-  width: 40%;
-  border: 1px solid black;
+  width: 20%;
+  background-color: rgba(0, 0, 0, 0.208);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
-.edit input, .edit textarea{
+.edit input,
+.edit textarea {
   border: 0px;
   border-radius: 10px;
   height: 40px;
   text-align: center;
 }
 
-.edit textarea{
+.edit textarea {
   padding-top: 20px;
 }
 
@@ -130,58 +201,61 @@ p {
   border: none;
   border-radius: 10px;
   padding: 10px;
-  margin:  10px 50px;
-  background-color:chartreuse;
+  margin: 10px 50px;
+  background-color: chartreuse;
   font-size: large;
 }
 
-.login{
-  background-color:rgba(0, 0, 0, 0.208);
+.login {
   display: flex;
   flex-direction: column;
   margin: 5% 40%;
   border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.208);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   padding: 30px;
 }
 
-h4{
+h4 {
   text-align: center;
   color: white;
   background-color: #111827;
   padding: 30px;
 }
 
-.login input{
-  margin:10px auto;
+.login input {
+  margin: 10px auto;
   border-radius: 10px;
-  outline: 2px solid #FEBF00;
+  outline: 2px solid #febf00;
   border: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #e2e2e2;
   outline-offset: 3px;
   padding: 10px 1rem;
   transition: 0.25s;
 }
-.login button{
+.login button {
   background-color: #111827;
   border: 1px solid transparent;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   box-sizing: border-box;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   flex: 0 0 auto;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.5rem;
-  padding: .75rem 1.2rem;
+  padding: 0.75rem 1.2rem;
   text-align: center;
-  text-decoration: none #6B7280 solid;
+  text-decoration: none #6b7280 solid;
   text-decoration-thickness: auto;
-  transition-duration: .2s;
-  transition-property: background-color,border-color,color,fill,stroke;
-  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
@@ -189,25 +263,57 @@ h4{
   margin: auto;
 }
 
-
 .progress-6 {
-  width:120px;
-  height:22px;
+  width: 120px;
+  height: 22px;
   border-radius: 20px;
-  color:#514b82;
-  border:2px solid;
+  color: #514b82;
+  border: 2px solid;
   position: relative;
   margin: 10% auto;
 }
 .progress-6::before {
-  content:"";
+  content: "";
   position: absolute;
-  margin:2px;
-  inset:0 100% 0 0;
+  margin: 2px;
+  inset: 0 100% 0 0;
   border-radius: inherit;
-  background:currentColor;
-  animation:p6 2s infinite;
+  background: currentColor;
+  animation: p6 2s infinite;
 }
 @keyframes p6 {
-    100% {inset:0}
+  100% {
+    inset: 0;
+  }
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: auto 43%;
+}
+
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px 40px 10px 30px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.select-wrapper select option {
+  padding: 10px;
 }
