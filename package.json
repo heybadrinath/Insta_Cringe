@@ -4,7 +4,8 @@
   "description": "Shows the users a list of insta bio's",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev" : "nodemon server.js"
   },
   "keywords": [],
   "author": "Badri",

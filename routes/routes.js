@@ -11,7 +11,8 @@ require("dotenv").config();
 const postValidate = joi.object({
   UserName: joi.string().required(),
   Bio: joi.string().required(),
-  userId: joi.string().required(),
+  UserId: joi.string().required(),
+  createdBy: joi.string().required(),
 });
 const patchValidate = joi.object({
   UserName: joi.string(),
@@ -30,15 +31,15 @@ router.get("/getBio", async (req, res) => {
 
 router.post("/postBio", async (req, res) => {
   try {
-    const { UserName, Bio, userId } = req.body;
+    const { UserName, Bio, UserId, createdBy } = req.body;
     console.log(req.body);
 
-    const { error, value } = postValidate.validate({ UserName, Bio, userId });
+    const { error, value } = postValidate.validate({ UserName, Bio, UserId, createdBy });
 
     if (error) {
       res.status(400).json(error);
     } else {
-      const profile = new Profile({ UserName, Bio, userId });
+      const profile = new Profile({ UserName, Bio, UserId, createdBy });
       await profile.save();
       res.status(201).json({ value });
     }

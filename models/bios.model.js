@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 const profileSchema = new mongoose.Schema({
   UserName: String,
   Bio: String,
-  userId: String
+  UserId: String,
+  createdBy: String
 });
 
 const Profile = mongoose.model("InstaBios", profileSchema);
