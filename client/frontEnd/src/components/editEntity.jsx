@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 function EditEntity() {
-  const apiLink = "http://localhost:3000/putBio";
+  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/putBio";
   const { id } = useParams();
   const [userName, setUserName] = useState("");
   const [userBio, setUserBio] = useState("");

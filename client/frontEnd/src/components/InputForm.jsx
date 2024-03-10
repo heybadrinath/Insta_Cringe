@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function InputForm() {
-  const apiLink = "http://localhost:3000/postBio";
+  const apiLink = "https://badri-squad51-insta-cringe.onrender.com/postBio";
   const [userName, setUserName] = useState("");
   const [userBio, setUserBio] = useState("");
   const [UserId, setUserId] = useState("");

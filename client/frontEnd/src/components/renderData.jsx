@@ -33,7 +33,7 @@ function RenderData() {
 
   const handleDelete = async (userId) => {
     try {
-      const apiLink = "http://localhost:3000/delete";
+      const apiLink = "https://badri-squad51-insta-cringe.onrender.com/delete";
 
       console.log("Delete UserId:", userId);
       const res = await axios.delete(`${apiLink}/${userId}`);
